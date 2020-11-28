@@ -1,5 +1,7 @@
 # EctoGeo
 
+[![Build Status](https://travis-ci.org/jackjoe/ecto_geo.svg?branch=main)](https://travis-ci.org/jackjoe/ecto_geo)
+
 **TODO: Add description**
 
 ## Installation
