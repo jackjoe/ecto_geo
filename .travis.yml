@@ -1,0 +1,20 @@
+language: elixir
+cache: apt
+elixir: "1.10"
+otp_release: "23.0"
+before_install:
+  - source script/linux-prereqs
+jobs:
+  include:
+    # https://hub.docker.com/_/mysql
+    # https://hub.docker.com/_/mariadb
+    - &mysql
+      stage: 🐬 MySQL
+      if: branch = master
+      services: docker
+      env: MYSQL=mysql:8.0.20
+      before_install:
+        - source script/linux-mysql
+        - source script/linux-prereqs
+    - <<: *mysql
+      env: MYSQL=mysql:8.0.22
