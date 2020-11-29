@@ -1,3 +1,5 @@
+**UPDATE** the issue has been resolved, this is here just as a reference.
+
 # EctoGeo
 
 [![Build Status](https://travis-ci.org/jackjoe/ecto_geo.svg?branch=master)](https://travis-ci.org/jackjoe/ecto_geo)
