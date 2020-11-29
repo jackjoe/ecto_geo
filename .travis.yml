@@ -16,4 +16,6 @@ jobs:
         - source script/linux-mysql
         - source script/linux-prereqs
     - <<: *mysql
+      env: MYSQL=mysql:8.0.21
+    - <<: *mysql
       env: MYSQL=mysql:8.0.22
