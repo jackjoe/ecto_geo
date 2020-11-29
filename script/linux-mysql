@@ -8,7 +8,7 @@ fi
 set -e
 sudo service mysql stop
 docker pull ${MYSQL}
-RUN_MYSQL="docker run -it --name=mysqld -d -e MYSQL_USER=ecto_geo MYSQL_PASSWORD=ecto_geo MYSQL_DATABASE=ecto_geo  -p 3306:3306"
+RUN_MYSQL="docker run -it --name=mysqld -d -e MYSQL_USER=ecto_geo -e MYSQL_RANDOM_ROOT_PASSWORD=yes -e MYSQL_PASSWORD=ecto_geo -e MYSQL_DATABASE=ecto_geo  -p 3306:3306"
 export MYSQL_URI=db:mysql://root@127.0.0.1/information_schema
 
 if [ $MYSQL == 'mysql:8.0' ]; then

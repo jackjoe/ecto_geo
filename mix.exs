@@ -32,7 +32,7 @@ defmodule EctoGeo.MixProject do
 
   defp aliases do
     [
-      test: ["ecto.create", "ecto.migrate", "test"]
+      test: ["ecto.drop" , "ecto.create", "ecto.migrate", "test"]
     ]
   end
 end

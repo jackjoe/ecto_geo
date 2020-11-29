@@ -2,22 +2,16 @@
 
 [![Build Status](https://travis-ci.org/jackjoe/ecto_geo.svg?branch=main)](https://travis-ci.org/jackjoe/ecto_geo)
 
+Small use case to expose bug when saving geometry data with ecto/myxql on MySQL 8.0.22.
+
 **TODO: Add description**
 
-## Installation
+## Testing
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ecto_geo` to your list of dependencies in `mix.exs`:
+Testing can be done with Docker to get a specific MySQL version up and running quickly. First run the Docker image and adjust the tag, then run the tests. Remember to stop your local mysql server if you have any running. The hostname of the dockerized mysql is '0.0.0.0'.
 
-```elixir
-def deps do
-  [
-    {:ecto_geo, "~> 0.1.0"}
-  ]
-end
+```bash
+docker run -it --name=mysqld -d -e MYSQL_RANDOM_ROOT_PASSWORD=yes -e MYSQL_USER=ecto_geo -e MYSQL_PASSWORD=ecto_geo -e MYSQL_DATABASE=ecto_geo -p 3306:3306 mysql:8.0.22
+# fill up your coffee now, mysql needs a bit to start up...
+mix test
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/ecto_geo](https://hexdocs.pm/ecto_geo).
-
