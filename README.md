@@ -14,7 +14,9 @@ In our client project we have a table storing geospatial data from our Elixir/Ph
 
 After a debugging session we were able to narrow it down the the type of queries that were creating the problem. Our `POI` schema was the culprit. We debugged some more and tried to feed the data received from the webform to the same set of methods it went through in our custom Ecto type and then use that to feed it directly to `myxql`. Strangely, that worked. We suspect that somewhere along casting the data something goes wrong.
 
-To be clear: the error does not occur on MySQL 8.0.20 nor 8.0.21. So as far as we are concered this is a MySQL bug. But in order to file a proper report there, they will ask for a specific use case. Then our Elixir/Ecto code won't do.
+This small project does pretty much exactly what our client project does as far as creating a POI entry goes.
+
+To be clear: the error does not occur on MySQL 8.0.20 nor 8.0.21. So as far as we are concered this is a MySQL bug related to _something_ in Ecto. But in order to file a proper report there, they will ask for a specific use case. Then our Elixir/Ecto code won't do.
 
 ## Note about the custom Ecto schema
 
