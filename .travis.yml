@@ -1,6 +1,6 @@
 language: elixir
 cache: apt
-elixir: "1.10"
+elixir: "1.11"
 otp_release: "23.0"
 before_install:
   - source script/linux-prereqs
