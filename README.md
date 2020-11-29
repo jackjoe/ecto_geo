@@ -6,13 +6,13 @@ Small use case to expose bug when saving geometry data with ecto/myxql on MySQL 
 
 ## Bug description
 
-In our client project we have a table storing geospatial data from our Elixir/Phoenix app. We contributed to the `myxql` package to add support for geometry in MySQL. Everything worked fine until last week. We had upgraded our local mysql server from 8.0.20 to 8.0.22 and all the sudden our tests failed with the rather ambigous error:
+In our client project we have a table storing geospatial data from our Elixir/Phoenix app. We contributed to the `myxql` package to add support for geometry in MySQL. Everything worked fine until last week. We had upgraded our local mysql server from 8.0.20 to 8.0.22 and all the sudden our tests failed with the rather ambiguous error:
 
 ```elixir
 ** (MyXQL.Error) (1210) (ER_WRONG_ARGUMENTS) Incorrect arguments to mysqld_stmt_execute
 ```
 
-After a debugging session we were able to narrow it down the the type of queries that were creating the problem. Our `POI` schema was the culprit. We debugged some more and tried to feed the data received from the webform to the same set of methods it went through in our custom Ecto type and then use that to feed it directly to `myxql`. Strangely, that worked. We suspect that somewhere along casting the data something goes wrong.
+After a debugging session we were able to narrow it down the the type of queries that were creating the problem. Our `POI` schema was the culprit. We debugged some more and tried to feed the data received from the web form to the same set of methods it went through in our custom Ecto type and then use that to feed it directly to `myxql`. Strangely, that worked. We suspect that somewhere along casting the data something goes wrong.
 
 This small project does pretty much exactly what our client project does as far as creating a POI entry goes.
 

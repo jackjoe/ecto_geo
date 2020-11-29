@@ -25,7 +25,7 @@ defmodule EctoGeo.MixProject do
     [
       {:ecto_sql, "~> 3.0"},
       {:ecto, "~> 3.5", override: true},
-      {:myxql, "~> 0.3"},
+      {:myxql, git: "https://github.com/elixir-ecto/myxql", override: true},
       {:geo, "3.3.5", override: true}
     ]
   end
